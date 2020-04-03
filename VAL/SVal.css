@@ -1,0 +1,18 @@
+body
+{
+	background: blue;
+	font-style: italic;
+	font-size : 20px;
+}
+p 
+{
+	font-family: "Arial Black";
+
+}
+input
+{
+	font-family: ALGERIAN, sans-serif;
+	font-size : 25px;
+	background: green;
+
+}
