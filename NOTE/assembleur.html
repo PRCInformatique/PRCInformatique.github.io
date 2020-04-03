@@ -6,6 +6,11 @@
 </head>
 <body>
 	<p>
+		<h4>Liens utiles</h4>
+		<a href="http://www.symbole-clavier.com" target="blank">Signe du clavier</a>
+		<a href="https://www.gladir.com/LEXIQUE/ASM/DICTIONN.HTM" target="blank">Dictionnaire de commandes assembleurs</a>
+
+
 		<h2>Les régistres</h2>
 		Les régistres sont de petites zones memoires logées dans le processeur. Dessus, on n'y fait que des 
 		calcules, rien que du calcule. On a comme régistres basiques 4 dont <code>AX,BX,CX,DX</code>.<ol><li>
@@ -32,6 +37,29 @@
 		 des nombres en d'autres bases. En base <b>binaire,</b> on fait suivre le nombre d'un <b><code>b soit 
 			 000111b</code></b>. En base <b>hexadécimal,</b> o fait suivre le nombre d'un <b><code>h soit 7A8h
 			 </code></b> ou le faire précédé de <b><code>0x soit 0x8A</code></b>
+		<h3>Le texte</h3>
+		On peut aussi insérer des textes. Cependant, comme l'ordinateur ne comprend que le binaire, il a fallu inventer un système de correspondance entre le binaire et le texte. la norme automatique utilisée est l'<code>ASCII</code> qui correspond au fait qu'à chaque nombre (1 octet soit 8 bits), on attribue un caractère. Ce qui permet de représenter jusqu'à <b>256 caractères.</b> Les caractères se mettent entre <b>guillemets ou apostrophes</b>.
+		<br>Pour insérer un mot ou une expression, on doit l'écrire normalement caractère par caractère, séparé par des virgules. EX:<code>db "u","n"</code>. Mais par convension, on l'écris en toute lettre et la machine se charge de le dissocier par la suite. Soit <code>db "un"</code>.
+
+		<h1>Etiquette</h1>
+		Les étiquettes sont des mots-clés placés au début de ligne et suivi des deux-points permettant de repérer un endoit du programme. Il est un mots ordinaires et ne doit pas etre figuré dans les mots qui servent de commande. Il respecte les mêmes convensions que les variables. On a <code>etiquette: instuction</code>. Une fois définie, on peut l'utiliser pour faire des opérations tout au long du programme. On peut l'appeler variable fixe ou constante. Sa valeur est non changeable et constitue une <b>valeur immédiate (valeur calculable dès l'assemblage sans attendre l'exécution)</b>
+		<h1>Premier programme assembleur</h1>
+		Considérons le code suivant:<br>
+		<code>
+			org 0x0100<br><br>
+			; ceci est un programme affichant<br>
+			; simplement "Hello World !!"<br><br>
+			mov dx, texte<br>
+			mov ah, 0x09<br>
+			int 0x21 		; afficher le Hello World<br>
+			ret 			; fin du programme<br><br>
+			texte: db 'Hello World !!', 10, 13, '$'
+		</code>
+		La commande <code>org</code> se nomme 'directive'. Il permet d'informer au logiciel d'assemblage NASM, où l'exécutable sera chargé.<br>
+		La commande <code>mov</code> permet d'affecter a un régistre un autre régistre ou une valeur. Le premier paramètre est un régistre (la destination) et le second paramètre, une valeur ou un régistre (source).<br>
+		La commande <code>ret</code> permet de sortir du programme. Elle est obligatoire car si on ne le met pas, l'exécution se pousuivrait peut emdomager l'ordinateur.<br>
+		La commande <code>int</code> permet de faire appel a un petit programme stocké dans l'ordinateur; cela se nomme une <b>Interruption.</b> Nous avons plusieur types d'interruptions faisont de diverses actions. Ceci en est un exemple. Ici, on appel le bout de code et celui effectue une action en fonction de ce qu'on a mis dans <code>ah</code>; on a mis <code>0x09</code> ce qui correspond pour l'interruption <code>0x21</code> à un affichage de texte. Il prend en entré l'adresse du texte à travers <code>dx</code>, et l'affiche.<br>
+		L'étiquette <code>texte: db 'Hello World !!', 10, 13, '$'</code>: <code>db</code> signifie 'Difine Double word' et permet de traduire toute la signe et de le rendre comprehensible à la machine. Le <code>10</code> indique un caractère spéciale, et suivi de <code>13</code>, correspond à un retour a la ligne. Et le signe <code>$</code> permet de dire a la routine DOS où se termine le texte. Puis passe la main a l'instruction suivante. le <code>ret</code> dans notre exemple.
 	</p>
 	
 </body>

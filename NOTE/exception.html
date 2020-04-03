@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exception</title>
+	<link rel="stylesheet" type="text/css" href="Sexception.css">
+</head>
+<body>
+	<p>
+		<h2>Les Exceptions</h2>
+		Une exception, c'est une erreur levée par l'interprèteur python. Il existe plusieurs types d'exception propre a divers type d'erreur. On peut nous même en créer une. <br> Cependant, il faut comprendre que une fois que l'interprèteur python rencontre une exception, il intéromp totalement le programme. Par conséquent, Python nous donne la possibilité de gérer ces exceptions et de soit continuer le programme en les ignorants, soit effectuer une action. Pour ce fait, nous avons quatres mots clés python qui ont tous une utilisation particulière. soit <code>try, except, else, finally</code>. La synthase est: <code><br>
+			try:<br>
+				instruction de texter<br>
+			except:<br>
+				action a faire en cas d'exception <br>
+			else:<br>
+				instruction a faire si il n'y a pas d'erreur<br>
+			finally:<br>
+				instruction a faire si il y a erreur ou pas.
+	</code><br>
+		Pour une interprétation littéraire de cette synthase, on dira: <b>Essaie <code>l'instruction de texte.</code> Si une erreur est identifié, au lieu de quiter le programme, tu excécutes l'instruction au niveau de <code>except</code>. Sinon, tu excécute l'instruction au niveau de <code>else</code>. A la fin du test, tu excécutes l'instruction de <code>finally.</code> </b>.
+		Cependant, pour un controle plus précis du type d'actions a faire en cas d'exception, il est conseiller de préciser le type d'exception au niveau de <code>except</code>. Cette ligne devient <code>except type d'exception:</code><br>
+		On peut aussi recuperer le type d'erreur en utilisant le mot clé <code>as</code> suivie d'une varriable de recuperation. Synthase: <code><b>except</b> type_erreur <b>as</b> variable:</code><br>
+		<h2>Assertions</h2>
+		C'est un moyens de s'assurer du respect d'une condition précis. On utilise le mots clé <code>assert</code> suivie de la condition. Si cette condition n'est pas respection, un type d'erreur est levé au niveau de python et le programme s'arrète a moins qu'on definie un test de gestions d'erreur vus plustôt. Le type d'erreur qu'il lève est <code>AssertionError</code>.
+		<br>
+		<h2>Lever une exception personnelle</h2>
+		Bien sur, nous pouvons lever nos propres erreurs. C'est bien utilise lorsque l'on veut faire respecter une condition propre a nous que l'interprèteur python ne considère pas comme erreur. pour le faire, il suffit d'utiliser le mot clé <code>raise</code> suivie du type et du message d'erreur souhaiter. Soit la Synthase: <code><b>raise</b> type_erreur ("message d'erreur")</code>.
+
+		<h2>En résumé:</h2>
+		<ul>
+			<li>On peut intercepter les erreurs grâce aux blocs <code>try, except, else, finally</code></li>
+			<li>La synthase d'une assertion est <code>assert test</code></li>
+			<li>Les assertions lèvent une exception <code>AssertionError</code> si le test échoue</li>
+			<li>On peut lever une exception grâce au mot-clé <code>raise</code> suivi du type et du message d'erreur</li>
+		</ul>
+	</p>
+</body>
+</html>
