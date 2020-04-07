@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chaine de caractère</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
+</head>
+<body>
+	<p>
+		<h1>Les chaines de caractère</h1>
+		Avant d'aborder les chaines de caractère, il faut comprendre que en python, tout ce que nous utilisons sont en effet des objets. <br>
+		<h3>C'est quoi un objet alors?</h3>
+		Un objet est une structure de données qui comporte en elle-même d'autres objets et des fonctions utilisable. Un objet est définie a partir d'une classe qui est un model de donné qui servent à créer un nombre infinie d'objet. <b>Nous élargirons ce concept plus loin</b>
+		<br> Ainsi, Une chaine de caractère est un objet de la Classe <code>str</code> qui contient plusieurs fonction. En définition, on peut dire que c'est une façons de mettre du texte dans un code Python. Pour le définir, on le met entre <b>des guiellemets ou des appostrophes</b>.
+		<br>
+		<h2>Quelques Méthodes</h2>
+		<code>chaine.lower()</code> permet de mettre en miniscule le texte<br>
+		<code>chaine.upper()</code> permet de mettre en majuscule le texte<br>
+		<code>chaine.capitalize()</code> permet de mettre le premier caractère du texte en majuscule.<br>
+		<code>chaine.center(nombre de chaine)</code> permet de centrer le texte en tenant compte du nombre de chaine mise en paramètre.<br>
+		<code>chaine.strip()</code> permet de supprimer les espaces vides au debut et a la fin du texte. <br> Il existe plusieurs autres fonctions de cettes classe. Pour retouver la documentation tout entier, il faut exécuter <code>help(str)</code> dans un interpréteur python.
+		<h2>Le formatage de texte</h2>
+		C'est une façon de mettre en forme un texte en python. Pour le faire, on utilise la méthode <code>format</code> qui prend en parametre des données à insérer. En effet, le formatage de texte permet d'insérer un objet dans notre texte sachant qu'un texte est un ensemble d'objet de la classe <code>str</code>. <br>La meilleur façon d'utilisation de la méthode format est <b>d'écrire un texte avec des accolades au différentes parties a modifier, l'extensifier avec la methode <code>format</code> et dans les paramètres, présiser les noms mise entre accolade et ensuite attribuer les valeurs nécessaire</b>.<br><b>EXEMPLE</b><br>
+		<code>
+			<b>androit</b> = 'Boulot'<br>
+			<b>sentiment</b> = 'Sérieux'<br>
+			<b>Lheure</b> = '18h'<br>
+			A = "chaque fois que je suis au {lieu}, Je suis toujours {humeur} à partir de {heur}".format(lieu = androit, humeur = sentiment, heur = Lheure)
+		</code><br>
+		<b>A</b> sera après exécution: <b>"chaque fois que je suis au <code>Boulot</code>, Je suis toujours <code>Sérieux</code> à partir de <code>15h</code>"</b>.<br>
+		Une autre façon plus simplifier est de mettre la lettre <code>f</code> au début du texte (avant les quillements) et de mettre directement les objets entre les accolades sans avoir à intencier quoi que ce soit. En considérant notre exemple de tout a l'heur, nous aurront <br><code>
+			<b>androit</b> = 'Boulot'<br>
+			<b>sentiment</b> = 'Sérieux'<br>
+			<b>Lheure</b> = '18h'<br>
+			A = f"chaque fois que je suis au {androit}, Je suis toujours {sentiment} à partir de {Lheure}"
+		</code>
+		Ce qui affichera les mêmes résultats.
+		<h2>Concaténation de chaines</h2>
+		Il consiste a ajouter un texte <b>A</b> a un texte <b>B</b> pour former un texte <b>C</b>. Pour le faire, on utilise le signe <code>+</code>. <br><b>EXEMPLE</b><br><code>A = "Je suis"<br>B = "enfant de Dieu"<br>C = A+B</code><br><code>C</code> prendra la valeur <code>'Je suis enfant de Dieu'</code>.<br>Il est a noter qu'on ne peut que faire la concatenation de deux chaines de caractère. C'est-à-dire seulement entre deux objets de la classe <code>str</code>.
+		<h2>Parcours et sélection de chaines</h2>
+		Une chaine de caractère est une séquence veillez consulter la page <a href="indexing.html">Séquences</a> savoir comment se fait les parcours de les sélections
+		<h2>En résumé</h2>
+		Nous avons vus que python est un langage orienté objet et tout ce que nous utilisons sont des objets. Les chaines de carractère sont des objets de la classe <code>str</code>. Les methodes de cette classe sont diverse et on peut les utiliser. La synthase pour utiliser une fonction propre a un objet est <code>objet.methode(arguments)</code>. En plus d'être un objet, les chaines de carractère sont des séquences et respect les même condition de manipulation que les autres séquences.
+	</p>
+	<a href="liste.html">Suivant: Les listes et les tuples</a>
+</body>
+</html>
