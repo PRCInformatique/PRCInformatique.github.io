@@ -89,3 +89,19 @@ TP1 Open_classroom
 	Zcasino()
 
 """
+def position(b,li):
+	a = 0
+	for i in li:
+		a += 1
+		if b == i:
+			return a
+def indice(b,li):
+	return position(b,li) - 1
+#print(indice(45,p))
+
+t=[(58,52),(48,5),(12,49,40,135)]
+
+def tt2 (liste):
+	A = [' '.join(i) for i in liste]
+	print (A)
+tt2(t)
