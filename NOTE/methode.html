@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Méthodes Spéciales</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
+</head>
+<body>
+	<p>
+		<h1>Les Méthodes Spéciales en python</h1>
+		Les méthodes spéciale de python sont des méthodes d'instances de la grande classe python <code>object</code> et qui permettent de contrôler les actions a éfectuer sur un object. Il est a conprendre que toutes les objects sont <a href="heritage.hmtl">hérités</a> de la grande classe <code>object</code>. Ces méthodes sont divers et utilisés pour divers actions.<h3>Edition d'object et accès aux attributs</h3> C'est l'ensemble des méthodes qui travail directement sur l'objet et ses attributs. Il est rappeler que toute les méthodes d'instance ont <code>self</code> comme premier paramètre. Nous avons <ul>
+			<li><code>__init__(self,paramètre)</code> qui est un constructeur. Il prend en paramètre un nombre variable d'arguments et permet la construction d'un objet.</li>
+			<li><code>__del__(self) </code> qui est appéler destructeur. Il est appelé automatiquement par python lorsqu'on tente de supprimer l'objet. On s'en sert pour controler la desttruction d'un objet. </li>
+			<li><code>__repr__(self) </code> Il affecte la façon dont les objects sont représentés si on tape leurs noms. Par défaut, Il envoie l'adresse mémoire de l'objet. Son second est la méthode <code>__str__(self)</code> qui aussi joue le même rôle. Ils permettent tous deux de définir une façon personnalisée de la manière dont est représenter notre objet a l'appel.</li>
+			<li><code>__getattr__(self,nom)</code>. C'est la méthode qui est appelée chaque fois qu'on essaie d'accéder a un attribut qui n'existe pas. Sa définition consiste a faire une action chaque fois qu'on essaie d'acceder a un attribut qui n'esxiste pas dans notre objet. Il prend en paramètre un nom qui sera attribuer a l'attribut recherché par la suite. </li>
+			<li><code>__setattr__(self,nom_attr,val_attr)</code>. C'est la méthode qui est appelée si l'on veut modifier un attribut. Ainsi, le nom de l'attribut est passé en paramètre sous forme de chaine de caractère et ensuite la nouvelle valeur. Sa définition permet de faire une action chaque fois qu'un attribut est modifé. Par contre, une fois définie on doit faire appel a la methode elle-même pour faire l'affectation au niveau de la définition. Soit <code>object.__setattr__(self,nom_attr,val_attr)</code>. Si on fais directement l'affectation avec <code>=</code> On risque de créer une boucle infinie.</li>
+			<li><code>__delattr__(self,nom_attr)</code>. Il est appeler lorsque l'on veut supprimer un attribut de notre objet. Comme dit, sa définission permetra de controler les demandes de supression d'attribut.</li>
+		</ul>
+		<h4>Quelques fonctions native</h4>
+		Ces fonction permet de travailer sur le objet en fessant toujours les mêmes actions comme d'habitude mais de façon plus pratique.<br><b>EXEMPLE</b>:<ul>
+			<li>Au lieu de faire <code>objet.attribut</code> pour accéder a un attribut, on fait plus tôt <code><b>getattr</b>(objet,'attribut')</code></li>
+			<li>La modification par <code>objet.attribut = valeur ou objet.__setattr__("attribut",valeur)</code> devient <code><b>setattr</b>(objet,"attribut",valeur)</code></li>
+			<li>La supression devient <code><b>delattr</b>(objet,"attribut")</code> au lieu de <code>del objet.attribut ou objet.__delattr__('attribut')</code></li>
+			<li>Et le fameux <code><b>hasattr</b>(objet,'attribut')</code> revoie <b>True</b> si l'attribut est bel bien un attribut de notre objet.</li>
+		</ul>
+		La définition des méthodes spéciale est encouragé que lorsque l'on veu contrôler pour une raison ou une autre, et de façon personnel certaines actions sur notre objet. Sinon, python a dans son sein une action définition par défaut de toutes ses fonctions et il se débrouille très bien.
+	</p>
+</body>
+</html>

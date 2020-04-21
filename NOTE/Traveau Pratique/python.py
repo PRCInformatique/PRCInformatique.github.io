@@ -89,8 +89,17 @@ TP1 Open_classroom
 	Zcasino()
 
 """
-def position(a = 25, b = 69):
-	return a+b
+import exo
 
-p = {"a":59,"b":60}
-print (position(**p))
+dic = {
+	"marque":"Itel S35",
+	"type_de_connexion":'4G',
+	"memoire_rom":'64GB',
+	'memoire_ram':'8gb',
+	"processeur":'34m',
+	'version':'dav+1.0'
+}
+
+Itel = exo.SmartPhone(**dic)
+cara = Itel.marque
+print (cara)

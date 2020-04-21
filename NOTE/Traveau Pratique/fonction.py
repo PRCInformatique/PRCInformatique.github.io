@@ -5,16 +5,67 @@ def ouvrir_fichier_b(nom,donne):
 	import pickle
 	with open(f'{nom}','wb') as fic:
 		sau = pickle.Pickler(fic)
-		sau.dump(donne)
-#ouverture de fichier binaire
+		sau.dump(donne)#ouverture de fichier binaire
 
 def lir_fichier_b(nom):
 	import pickle
 	with open(f"{nom}",'rb') as fic:
 		rec = pickle.Unpickler(fic)
 		ret = rec.load()
-	return(ret)
-#lecture de fichier binairaire
+	return(ret)#lecture de fichier binairaire
+
+def sauvegarde (**paramètre):
+	donne = lir_fichier_b("officiel")
+	cle = (date,source)
+	donnee = [(pays,info)]
+	if cle in donne.keys():
+		donne[cle].extend(donnee)
+	else:
+		donne[cle] = donnee
+	ouvrir_fichier_b("officiel",donne)#Méthode de sauvegarde officielle
+
+def source_sauvegarde(**paramètre):
+	donne = lir_fichier_b("source")
+	cle = (pays)
+	donnee = [source]
+	if cle in donne.keys():
+		donne[cle].extend(donnee)
+	else:
+		donne[cle] = donnee
+	ouvrir_fichier_b("source",donne)#Méthode se sauvegarde des sources
+
+def non_sauvegarder(**paramètre):
+	donne = lir_fichier_b("secret")
+	cle = source
+	donnee = [(pays,info)]
+	if cle in donne.keys():
+		donne[cle].extend(donnee)
+	else:
+		donne[cle] = donnee
+	ouvrir_fichier_b("secret",donne)#Méthode de sauvegarde secret
+
+def administrateur():
+	nom = 'David'
+	mot_de_passe = '32843'
+	dic = {
+	"nom":f"{nom}",
+	"mot_de_pass":f"{mot_de_passe}"
+	}
+	return dic#définie les informations de l'administrateur
+
+def info_secret():#Retourne les informations sécrètement enrégistrées
+	return lir_fichier_b("secret")
+
+def info_officiel(): #Retourne les informations officiellement enrégistrées
+	return lir_fichier_b("officiel")
+
+def source():# return la liste des sources
+	return lir_fichier_b("source")
+
+def search(sources,pays,source):
+	for Pays in sources.keys():
+		if pays == Pays:
+			return [True for sou in sources[pays] if sou == source] #algorithme d'Annalyse
 
 def mot_hazart():
 	from random import randrange
