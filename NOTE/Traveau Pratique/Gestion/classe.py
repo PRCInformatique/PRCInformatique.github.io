@@ -47,7 +47,6 @@ class Gestion:#Classe de gestion
 		dic = {
 		self.nom_objet : ({"entrés": self.entrer_total,"sortis": self.sortie_total,"reste": self.reste_total})
 		}
-		print (dic)
 		enre_oj_espace (self.pseudo,self.date,dic)
 		G_dic = tri_dans_dic(self.pseudo)
 		return G_dic
