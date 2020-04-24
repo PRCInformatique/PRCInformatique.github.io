@@ -1,25 +1,21 @@
 #Coding:utf-8
 import tkinter
-from tkinter import messagebox
 
-""" 
-Programme de conversion automatique. Choix de l'utilité se mésure entre mètre, litre et gramme
-"""
 # -------------- fonction de conversion ------------------------
-def position(valeur,liste):
+def position(valeur,liste):#donne l'indice de valeur dans liste
 	a = -1
 	for i in liste:
 		a += 1
 		if i == valeur:
 			return a
-def position_conv(valeur1,valeur2,liste):
+def position_conv(valeur1,valeur2,liste):#Donne la position du dernier chiffre du nombre a virgule a prendre en compte pour l'arrondissement de la valeur
 	a = 0
 	for i in liste:
 		a +=1
 		if i == valeur1 and liste[a] == valeur2:
 			return a
 
-def vale (valeur):
+def vale (valeur):#Donne la valeur a prendre en compte si le resultat est un nombre a virgule et que le dernier chiffre de la valeur a convertire est "0"
 	valeur = str (valeur)
 	a = -1
 	l1 = [0]* len(valeur)
@@ -30,7 +26,7 @@ def vale (valeur):
 		if i != "0":
 			return i
 
-def arrond (valeur,V_conversion):
+def arrond (valeur,V_conversion): #Permet l'arrondissement du resultat au cas ou le resultat sera un nombre a virgule approsimative
 	valeur = str(valeur)
 	print(valeur)
 	print(V_conversion)
@@ -38,11 +34,9 @@ def arrond (valeur,V_conversion):
 	V1 = vale(valeur)
 	print (V1)
 	VC = V_conversion[-1]
-	if V1 == VC or V1 == 0:
-		print("yes")
+	if V1 == VC:
 		return V_conversion
 	else:
-		print(len(valeur))
 		if len(valeur)<=2:
 			indice = position_conv(V1,valeur[-2],V_conversion)
 		else:
@@ -50,7 +44,7 @@ def arrond (valeur,V_conversion):
 		R = V_conversion[:indice+1]
 		return R
 
-def conversion(valr,unite_mesure,unite_conversion):
+def conversion(valr,unite_mesure,unite_conversion):#Programme de conversion en bonne et dû forme. prend en charge la règle de convertion de l'unité mètre.
 	u = unite_mesure[0]
 	unite_conversion = unite_conversion[0]+u
 	unit = f"k{u} h{u} da{u} {u} d{u} c{u} m{u}"
@@ -62,7 +56,7 @@ def conversion(valr,unite_mesure,unite_conversion):
 	if type (resultat) == float:
 		resultat = arrond(valr,resultat)
 	return f"{resultat} {unite_conversion}"
-
+#Peut faire aussi pour littre et gramme.
 #//////////////////////////////////////////////////////////////////////////////
 
 #----------------- Programmation graphique -----------------------
