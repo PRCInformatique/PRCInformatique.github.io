@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Positionnement des widgets</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
+</head>
+<body>
+	<p>
+		<h1>Gestionnaire de positionnement des widgets</h1>
+		Un gestionnaire de positionnement sert à gérer la grille d'affichage des widgets sur une fenêtre. Il existe plusieurs, mais nous allons prendre le plus Basique et le plus facile <code>widget.grid()</code>. Il consiste à découper chaque fenêtre ou carde en une grille formée de lignes et de colonnes.
+		<h4>Quelques notions</h4>
+		<ul>
+			<li><b>Une cellule</b> est la zone d'intersection d'une ligne et d'une colonne.</li>
+			<li>La largeur d'une colonne et la hauteur d'une ligne est déterminé par celle la plus large de la cellule qu'elle contient.</li>
+			<li>Il est possible de regrouper plusieurs cellule en une plus large ou plus haut.</li>
+			<li>Concernant les composants graphique qui n'occupe pas toute la surface de leur cellule, on peut indiquer quoi faire du reste de la surface tend a l'intérieur comme à l'extérieur.</li>
+		</ul>
+		Il est a noté qu'un widget créer ne s'affichera que si il a été placé dans un gestionnaire de positionnement.
+		<h3>Grid()</h3>
+		Sa définition consiste a l'instencier au widget comme une méthode d'intance. Ses paramètres sont les suivants:
+		<ul>
+			<li><code>column = </code>: Prend en valeur le numéro de la colonne où le widget sera placé.</li>
+			<li><code>columnspan = </code>: permet de définir le nombre de cellule d'une que le widget doit contenir</li>
+			<li><code>in_ = </code>: Permet de d'enrégistrer une widget dans un autre tout en cachant le premier.</li>
+			<li><code>ipadx = </code>: Défine la marge interne horizontale. Son équivalent <code>padx = </code>: qui la marge externe horizonrale</li>
+			<li><code>ipady = </code>: Définie la marge interne verticale. Son équivakent <code>pady = </code>: marge externe verticale</li>
+			<li><code>row = </code>: Prend en valeur le numero de ligne à laquel le widget sera attribuer.</li>
+			<li><code>rowspan = </code>: Même chose que <code>columnspan</code>. Mais ici, c'est au niveu de la ligne que l'action se passe</li>
+			<li><code>sticky = </code>: C'est une optio qui permet de gerer l'espace non occuper a l'intérieur d'une cellule. Ses valeurs principales sont <code>"n"</code> (nord), <code>"e"</code> (est), <code>"s"</code> (sud), <code>"w"</code> (ouest). On peut faire la combinaison de ses valeurs pour un positionnement plus concrète. Par défaut, il centre le widget dans à l'intérieur de la cellule.</li> 
+		</ul>
+		<h2>Autres méthodes</h2>. Ces méthodes sont définie sur tous les widgets. Il y en a qui sont spécifique au widget parent ou a la fenêtre elle-même. Nous avons:
+		<ul>
+			<li><code>widget.grid_forget()</code>: Permet d'ignorer l'affichage d'un widget.</li>
+			<li><code>widget.grid_info()</code>: Retourne un dictionnaire dont les clés sont les options et en valeur, les valeurs de ses options utilisé dans le positionnenent du widget</li>
+			<li><code>widget.grid_propagate()</code>: Par défaut, tous les widgets s'ajustent pour s'adapter à leur contenu. Cette methode permet de définir la taille d'un widget indépendamment de de son contenu.</li>
+			<li><code>widget.grid_remove()</code>: Permet d'enlever temporairement un widget.</li>
+			<li><code>widget.grid_size()</code>: Retoune un tuple à deux éléments qui contient le nombre de colonnes et de lignes dans le système de grille du widget</li>
+			<li><code>widget.grid_slaves(row = None, column = None)</code>: Retourne la liste des widgets contenus dans, le widget. Si aucune paramètre n'est donnée, il retourne une liste complet des widgets contenus dans le widgets parents.</li>
+		</ul>
+		<h3>Configuration de la taille des lignes et des colonnes</h3>
+		Comme déja vu au début, la largeur ou la hauteur d'une colonne ou d'une ligne dépend de celle de la plus large sur la ligne. 
+	</p>
+</body>
+</html>

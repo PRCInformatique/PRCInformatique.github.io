@@ -2,50 +2,24 @@
 <html>
 <head>
 	<title>La Bibliotèque tkinter</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
 
 </head>
 <body>
 	<p>
 		<h1>La Bibliothèque tkinter</h1>
-		C'est une bibliothèque qui permet de faire la programation graphique en python. Le module est <code>tkinter</code>. Pour contruire une interface tkinter, on utilise la classe <code>Tk</code>. Soit le code <code>Aplication = tkinter.Tk()</code> Et pour l'affichage d'une fenettre tkinter, on fait <code>Application.mainloop()</code>. La méthode <code>mainloop()</code> est une boucle infinie qui permet l'affichage de la fenettre.
-		<h2>Quelques méthodes utiles d'un objet de la classe Tk()</h2>
-		<code>objet.title("Titre")</code> Permet de définire le titre de la fenettre.<br>
-		<code>objet.minsize(largeur,hauteur)</code> permet de définire la taille minimale de notre fenettre.<br>
-		<code>objet.maxsize(largeur,hauteur)</code> Permet de définir la taille maximale de notre fenettre.<br>
-		<code>objet.resizable(width=,height=)</code> Permet de définir si notre fenettre est redimentionnable ou pas. <code>width et height</code> prenne deux valeur, <code>True ou False</code>. True si la fenettre est redimentionnable et False si non.<br>
-		<code>objet.positionfrom("user")</code> permet de définir la position de la fenettre selon les paramètre de l'utilisateur<br>
-		<code>objet.sizefrom("user")</code> permet de définir la taille selon les paramètres de l'utilisateur.<br>
-		<code>objet.geometry("'largeur'x'hauteur'+margelargeur+margehauteur")</code> permet de définir la taille de notre fenettre et les marge de l'écran a prendre en compte.<br>
-		<h2>Les widgets en tkinter</h2>
-		Ils permettent d'ajouter des éléments sur notre fenettre. Il prenne en premier paramètre le widget parent (fenttre d'origine ou widget conteneur). Les widget conteneur sont des widgets capable de contenir d'autre widgets pour la mise en forme. 
-		<br><b>Quelques widgets</b><br>
-		<code>tkinter.Label()</code> Il permet d'afficher du texte sur notre fenettre.Il prend des paramètre bien définie qui seront détaillé plus tard.<br>
-		<code>tkinter.Message()</code> Il permet aussi l'affichage de texte comme <code>Label</code> mais avec une mise forme un peux plus différent que celle-ci.<br>
-		<code>tkinter.Entry()</code> Il permet d'entrer du text dans texte. Comme <code>input()</code><br>
-		<code>tkinter.Button()</code> Il permet de définire un boutton clickable qui permetra d'interagire avec la fenettre avec son attribut spécial <code>command</code><br>
-		<code>tkinter.Checkbutton()</code> Permet de faire une liste d'option facultative pour permettre a l'utilisateur de faire un choix. L'utilisateur est libre de cocher ou non une case.<br>
-		<code>tkinter.Radiobutton()</code> Permet de faire aussi une liste d'option mais cette fois, il est obligatoire de choisir une case. Le choix n'est pas optionel ici.<br>
-		<code>tkinter.Scale()</code> Permet de définir un objet de curseur graphique qui permet de sélectionner des valeurs à partir d'une échelle.<br>
-		<code>tkinter.Spinbox()</code> est une variante du widget <code>tkinter.Entry()</code> et qui permet de sélectionner un nombre fixe de valeurs.<br>
-		<code>tkinter.Listbox</code> Permet de créer une case de listes multiples pour l'utilisateur.<br>
-
-
-		...
-		<h3>La Classe <code>messagebox</code></h3>. C'est une forme de widget modal qui permet d'afficher des informations ou de demander une action spécifique a l'utilisateur. Ces méthodes sont multiples. Ils prennent en paramètre le titre du widget suivie du message ou de le requette à demander. On a: <dl>
-			<dw>showerror()</dw><dd> Permet d'afficher un message d'erreur.</dd>
-			<dw>showinfo()</dw> <dd>Permet d'afficher une information</dd>
-			<dw>showwarning()</dw><dd>Permet d'afficher un message d'avertissement</dd>
-			<dw>askquestion()</dw><dd>Permet de poser un question. Les reponses attendus est du type <b>oui ou non</b></dd>
-			<dw>askokcancel()</dw><dd>Permet de poser une question du type spécifique <b>ok ou annuler</b></dd>
-			<dw>askyesno</dw><dd>Pose une question de <b>oui ou de non</b></dd>
-			<dw>askretrycansel</dw><dd>Demande si une action doit étre refais ou pas</dd>
+		Tkinter est une bibliothèque graphique permettant de réaliser des interfaces graphiques multiplateforme pour l'utilisateur (GUI) à l'aide d'un ensemble de composants graphiques (widgets). 
+		<h4>Quelques définitions</h4>
+		<dl>
+			<dw><b>Fenêtre</b></dw>
+			<dd>Ce terme prend des sens différents suivants le contexte, mais en général il renvoie à une aire rectangulaire quelque par sur votre écran.</dd>
+			<dw><b>Fenêtre mère (top-level window)</b></dw>
+			<dd>Une fenêtre qui existe de manière indépendant sur l'écran. Elle sera décorée conformément à votre gestionnaire de bureau et munie des petits boutons habituels. On peut la déplacer et généralement la redimentionner même si votre application peut limiter cela.</dd>
+			<dw><b>Composant graphique (widget) </b></dw><dd>C'est le terme qui désignent tous les éléments qui forment l'interface graphique utilisateur comme les étiquètes, les boutons, etc.</dd>
+			<dw><b>Cadre (frame)</b></dw><dd>C'est l'unité de base pour l'organisation d'une mise en forme complexe dans tkinter. Un cadre est une zone rectangulaire qui peut contenir d'autres composants graphiques (widgets)</dd>
+			<dw><b>enfant, parent</b></dw><dd>Lorsqu'un composant graphique est créé, une relation parent/enfant est établie. Par exemple, si on place une étiquette dans un cadre, le cadre est le parent de l'étiquette.</dd>
 		</dl>
-		Son utilisation consiste souvant à associer l'action souhaitée à une fonction qui servira de commande d'appel en cas de besoin.
-
-		<h3>Les variables tkinter</h3>
-		Nous en avons quatres principaux selon les types primitifs de python. Soit<br> <code>tkinter.StringVar()</code>: Qui est rattaché au type <code>str</code>,<br><code>tkinter.IntVar()</code>: Qui est rattaché au type <code>int</code>, <br><code>tkinter.DoubleVar</code>: Rattaché au type <code>float</code>et<br><code>tkinter.BooleanVar()</code>: Associé au type <code>bool</code> Il retourne <code>1</code> si c'est <code>True</code> et <code>0</code> si la valeur est <code>False</code>.<br>
-		Ils permettent l'interaction entre les widgets grâce au principe de <a href="encapsulation.html">propriété en python</a>. Il est vrai qu'il y a une petite différence. Mais la compréhension de la facons donc les variable sont mise sous propriété peut aider a vite comprendre le principe ici. Pour modifier une variable <code>tkinter</code>, on utilise la méthode d'instance <code>set()</code> qui prend en paramètre la nouvelle valeur à attribuer à la variable. Et pour une récupération, on utilise <code>get()</code>. Pour utiliser une variable dans un widget tkinter, on utilise <a href="optionstkinter.html">l'option général</a> <code>textvariable</code> et l'option particulier <code>variable</code>. <br>Pour une interaction avec les widgets, on définie d'abors un <b>observateur</b> qui est une fonction de liaison dans laquel on définie les interactions et ensuite on connect cet observateur soit au widget directement selon le widget soit en utilisant la methode d'intance <code>trace</code> sur la variable à observer et prend en premier paramètre le mode a partir duquel la variable sera observé suivie de la methode (Observateur) a appeler. Soit <code>var.trace("mode","Observateur")</code>. Nous avons trois modes principal: <code>"w"</code> pour l'écriture, <code>"r"</code> pour la lecture et <code>"u"</code> au cas où la variable sera suprimé.
-
 	</p>
+	SUIVANT <a href="positionnement.html">Gérer les positionnements.</a>
 </body>
 </html>

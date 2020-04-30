@@ -1,106 +1,42 @@
 #Coding:utf-8
-import tkinter
-from tkinter import messagebox
+import pygame
+from pygame.locals import*
 
-""" 
-Programme de conversion automatique. Choix de l'utilité se mésure entre mètre, litre et gramme
-"""
-# -------------- fonction de conversion ------------------------
-def position(valeur,liste):
-	a = -1
-	for i in liste:
-		a += 1
-		if i == valeur:
-			return a
-def position_conv(valeur1,valeur2,liste):
-	a = 0
-	for i in liste:
-		a +=1
-		if i == valeur1 and liste[a] == valeur2:
-			return a
+pygame.init()
+fenetre = pygame.display.set_mode((876,1200), RESIZABLE)
+fond1 = pygame.image.load("a1.jpg").convert_alpha()
+fond2 = pygame.image.load("a2.png")
+pax = 0
+pay = 0
+position_fond1 = fond1.get_rect()
+fenetre.blit(fond1, position_fond1)
+fenetre.blit(fond2,(pax,pay))
 
-def vale (valeur):
-	valeur = str (valeur)
-	a = -1
-	l1 = [0]* len(valeur)
-	for inv in valeur:
-		l1[a] = inv
-		a -= 1
-	for i in l1:
-		if i != "0":
-			return i
+pygame.display.flip()
 
-def arrond (valeur,V_conversion):
-	valeur = str(valeur)
-	print(valeur)
-	print(V_conversion)
-	V_conversion = str(V_conversion)
-	V1 = vale(valeur)
-	print (V1)
-	VC = V_conversion[-1]
-	if V1 == VC or V1 == 0:
-		print("yes")
-		return V_conversion
-	else:
-		print(len(valeur))
-		if len(valeur)<=2:
-			indice = position_conv(V1,valeur[-2],V_conversion)
-		else:
-			indice = position(V1,V_conversion)
-		R = V_conversion[:indice+1]
-		return R
+pygame.key.set_repeat(400, 3)
+continuer = 1
+while continuer:
+	for event in pygame.event.get():
+		if event.type == MOUSEBUTTONDOWN:
+			if event.button == 1:
+				if event.type == MOUSEMOTION:
+					pax = event.pos[0]
+					pay = event.pos[1]
+		if event.type == QUIT:
+			continuer = 0
+		if event.type == KEYDOWN:
+			if event.key == K_DOWN or event.key == K_8:
+				position_fond1 = position_fond1.move(0,10)
 
-def conversion(valr,unite_mesure,unite_conversion):
-	u = unite_mesure[0]
-	unite_conversion = unite_conversion[0]+u
-	unit = f"k{u} h{u} da{u} {u} d{u} c{u} m{u}"
-	print (unit)
-	unit = unit.split()
-	indice_u_mesure = position(u,unit)
-	indice_u_conversion = position(unite_conversion,unit)
-	resultat = (10**(indice_u_conversion - indice_u_mesure) * valr)
-	if type (resultat) == float:
-		resultat = arrond(valr,resultat)
-	return f"{resultat} {unite_conversion}"
+			if event.key == K_UP or event.key == K_2:
+				position_fond1 = position_fond1.move(0,-10)
 
-#//////////////////////////////////////////////////////////////////////////////
+			if event.key == K_RIGHT or event.key == K_4:
+				position_fond1 = position_fond1.move(10,0)
 
-#----------------- Programmation graphique -----------------------
-App = tkinter.Tk()
-App.geometry("200x200")
-App.title("Conversion")
-#7radio button,7label,1Entry, observateur, traceur
-#observeur
-def observeur(*args):
-	convers.set(conversion(valeur.get(),unite_mesure.get(),unite_conversion.get()))
-#----------------
-#variable
-valeur = tkinter.IntVar()
-unite_mesure = tkinter.StringVar()
-unite_conversion = tkinter.StringVar()
-convers = tkinter.StringVar()
-
-#----------------
-#Les widgets
-
-valeur.trace("w",observeur)
-unite_mesure.trace("w",observeur)
-unite_conversion.trace("w",observeur)
-
-sotie1 = tkinter.Message(App, text = "Unité de Mesure")
-sotie2 = tkinter.Message(App, text = "Unité de Conversion")
-sotie3 = tkinter.Label(App, text = "Valeur")
-entre1 = tkinter.Entry(App, textvariable = unite_mesure )
-entre2 = tkinter.Entry(App, textvariable = unite_conversion)
-entre3 = tkinter.Entry(App, textvariable = valeur)
-sorti4 = tkinter.Label(App, textvariable = convers)
-#----------------
-sotie1.pack()
-entre1.pack()
-sotie2.pack()
-entre2.pack()
-sotie3.pack()
-entre3.pack()
-sorti4.pack()
-
-App.mainloop()
+			if event.key == K_LEFT or event.key == K_6:
+				position_fond1 = position_fond1.move(-10,0)
+	fenetre.blit(fond1, position_fond1)
+	fenetre.blit(fond2, (pax,pay))
+	pygame.display.flip()
