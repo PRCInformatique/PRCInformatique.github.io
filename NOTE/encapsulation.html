@@ -5,15 +5,16 @@
 	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
 </head>
 <body>
+	<a href="python.html">HOME</a>
 	<p>
 		<h1>Principe d'encapsulation</h1>
-		En python, toutes les attributs de classe sont public c'est-à-dire acessible en dehors de sa classe de définition. Ainsi, on peut accéder et modifier un attribut hors de sa classe. Cependant, il y a une classe en python qui permet d'exercer un contrôle strict sur certains attribut. On le nomme la classe <code>property</code>. Il prent quatre paramètres toutes optionelles. Le premier représente la fonction d'accès, le second, c'est la fonction de modification, le troisième est la fonction de supression et le quatrième est la fonction d'aide par rapport a l'attribut. En quelque sorte, cette classe permet de définir la proprieté de l'attribut. Les paramètres sont juste les noms des fonctions. La synthase par défaut est:<code><br>
-			self._attribut= valeur (dans le constructeur)<br>
-			def _get_attribut(self):#methode d'accès<br>... intructions ...<br>
-			def _set_attribut (self,nouvelle_valeur):#methode de modification<br>... instructions ... <br>
-			def _sup_attribut (self):#methode de supression<br>... inwtructions ... <br>
-			def _aid_attribut (self):#methode d'aide<br> ... instructions ...<br>
-			attribut = property(_det_attribut,_set_attribut,_sup_attribut,_aid_attribut)#a l'interieur de la classe elle-même
+		En python, toutes les attributs de classe sont public c'est-à-dire acessible en dehors de sa classe de définition. Ainsi, on peut accéder et modifier un attribut hors de sa classe. Cependant, il y a une classe en python qui permet d'exercer un contrôle strict sur certains attribut. On le nomme la classe <code><b>property</b></code>. Il prent quatre paramètres toutes optionelles. Le premier représente la fonction d'accès, le second, c'est la fonction de modification, le troisième est la fonction de supression et le quatrième est la fonction d'aide par rapport a l'attribut. En quelque sorte, cette classe permet de définir la proprieté de l'attribut. Les paramètres sont juste les noms des fonctions. La synthase par défaut est:<code><br>
+			<b>self</b>._attribut= valeur (dans le constructeur)<br>
+			<b>def</b> _get_attribut(<b>self</b>):#methode d'accès<br>... intructions ...<br>
+			<b>def</b> _set_attribut (<b>self</b>,nouvelle_valeur):#methode de modification<br>... instructions ... <br>
+			<b>def</b> _sup_attribut (<b>self</b>):#methode de supression<br>... instructions ... <br>
+			<b>def</b> _aid_attribut (<b>self</b>):#methode d'aide<br> ... instructions ...<br>
+			attribut = <b>property</b>(_get_attribut,_set_attribut,_sup_attribut,_aid_attribut)#à l'interieur de la classe elle-même
 		</code>
 		L'utilisation d'un attribut mis sous propriété est le même que pour ceux laissés par défaut. Seulement que seul les actions définies serons exécutés. Par convention, on met un souligné <code>_</code> derrière chaque attribut à controler.
 	</p>
