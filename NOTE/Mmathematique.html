@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Méthodes Mathématiques</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
+</head>
+<body>
+	<p>
+		<h1>Les méthodes Mathématiques</h1>
+		Les méthodes spéciales Mathématiques conistent à définir comment faire de simple calcule mathématique entre deux objets de type différent ou de même type de classe. Nous avons une méthode pour chaque opérateurs mathématique soit <code>+ - * / // % **</code> etc.<br> Nous avons respectivement les méthodes <code><b>__add__</b>(self,valeur)</code>, <code><b>__sub__</b>(self,valeur)</code>, <code><b>__mul__</b>(self,valeur)</code>, <code><b>__truediv__</b>(self,valeur)</code>, <code><b>__floordiv__</b>(self,valeur)</code> pour les divisions entière, <code><b>__mod__</b>(self,valeur)</code>, <code><b>__pow__</b>(self,valeur)</code> pour les puissances.<br>Ils retournent tous une valeur. Leurs définitions permettent d'utiliser les signes d'opération mathématique sur les objets de notre classe.<br><b>NOTE:</b><br>Il est à noté, ces méthodes consistent à travailler sur notre objet et un autre soit <code>objet + int</code>. L'inverse soit <code>int + objet</code> n'est pas possible. Pour ce, on définie une autre méthode spéciale. C'est pratiquement les mêmes choses, seulement qu'on précède les méthodes de <code>r</code>. Ainsi, <code>__add__</code> devient <code>__radd__</code>. Il aussi possible de faire la surcharge des <code>+=</code>, <code>-=</code>, etc. Il suffit de précéder chaque méthodes corespondantes de <code>i</code> soit <code>__iadd__</code>.
+	</p>
+	<a href="python.html">HOME</a><br>
+	<a href="Mcomparaison.html">SUIVANT: Les méthodes de comparaison</a>
+</body>
+</html>

@@ -1,30 +1,25 @@
 #Coding:utf-8
 
-class essaie:
-	a = 0
-	def __init__(self,v1,v2):
-		essaie.a += 1
-		self.v1 = v1
-		self.v2 = v2
-		self._xi = "75 84 59 7 4 5 11 33 557 8 99 5 41 22 55 66 33 11 5 8 9 5 4 2 4 8 8 9 7 4 5 7".split(" ")
-		self.xi = [int(i) for i in self._xi]
-	def addition(cls,v1,v2):
-		return v1+v2
-	addition = classmethod(addition)
+class salaire:
+	def __init__ (self,salaire_mois):
+		self._salaire_mois = salaire_mois
+		self.salaire_mois = salaire_mois
 
-	def calcule(self,signe):
-		if signe == '+':
-			r = essaie.addition(self.v1,self.v2)
-			return r 
-	def __repr__(self):
-		return f"JE suis {self.v1} "
-	
-	def __getitem__(self,index):
-		return self.xi[index]
+	def __radd__(self,nbre_mois):
+		return self.__add__(nbre_mois)
 
-p = essaie(49,53)
-#print (p)
-r = p.calcule('+')
-#p.v2 = 60
-print (p.v2)
-print (p[9])
+	def __add__(self,nbre_mois):
+		sas = self._salaire_mois * nbre_mois
+		self.salaire_mois += sas
+		return self.salaire_mois
+
+	def __sub__(self,nbre_mois):
+		sals = self._salaire_mois * nbre_mois
+		self.salaire_mois -= sals
+		return self.salaire_mois
+
+sal = salaire(30000)
+un_an = sal + 6
+moin_6_mois = -6 + sal
+re = moin_6_mois
+print (re)
