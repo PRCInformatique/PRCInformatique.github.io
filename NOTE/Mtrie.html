@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Méthodes de tri</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
+</head>
+<body>
+	<a href="python.html">HOME</a>
+	<p>
+		<h1>Méthode de tri en python</h1>
+		Nous avons deux méthodes de trie proposé par python. Il s'agit de <code>liste.sort()</code> et <code>sorted()</code>. Le premier est propre au liste et travail directement sur la liste. C'est-à-dire modifie directement la liste. Le second au contraire est commune a toutes les séquences. Ils ont tous deux les mêmes caractéristiques. Par défaut, ils font le tri d'une liste entier du plus petit au plus grand et si il s'agit d'une liste de chaine de caractère, ils font le trie par ordre alphabétique. Ils prennent tous deux arguments optionnels en paramètre. Soit <code>key</code> qui prend en valeur une fonction clé et <code>reverse</code> qui prend en valeur <code>True</code> ou <code>False</code>.(Il est à défaut définie sur <code>False</code>) L'argument <code>reverse</code> permet de changer l'ordre dans laquelle le tri se fera. Si la valeur est diffinie à <code>True</code>, le tri se fera par orde décroissant.<br> Le paramètre <code>key</code> permet de définire le critère à prendre en compte pour le triage des éléments. Très souvent, la fonction clé utilisée est une fonction <a href="lam.html"><code>lambda</code></a> . Le role de cette fonction est de retourné soit une indice si il s'agit de trier une liste contenant des listes, soit un attribut en ce qui concerne une liste contenant les objets que nous avons créés. Ainsi, le tri se fait selon ce critère.
+		<h3>Le module <code>operator</code></h3>
+		Au lieu de définir une fonction <code>lambda</code>, nous avons deux fonctions du module <code>operator</code> qui nous permet de faire sans problème une tel opération. Il s'agit de <code>itemgetter</code> pour les indices et <code>attrgetter</code> pour les attributs.
+	</p>
+	<a href="python.html">HOME</a><br>
+	<a href="heritage.html">SUIVANT: Notion d'Héritage</a>
+</body>
+</html>

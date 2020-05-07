@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notion d'héritage</title>
+	<link rel="stylesheet" type="text/css" href="Sassembleur.css">
+</head>
+<body>
+	<p>
+		<h1>La Notion d'Héritage de classe</h1>
+		La notion d'héritage consiste à définir une classe (classe fille) qui dépend d'une autre classe (classe mère). Ainsi, la classe dite fille est dotée de toutes les méthodes et attributs de la classe mère. C'est un peut comme le concepte d'héritage de germe humain. Un enfant hérite des germes de ses parents. Ainsi, leur sang, leurs habitudes, leur ADN, etc., avant de définir par lui même une autre propre a sa personne. C'est un peu ce qui se passe dans la notion d'héritage de classe. La synthase pour faire hérité une classe d'une autre est: <br><code>ClasseFille(ClasseMère):</code>. Une classe mère n'a pas de synthase particulier. Tout classe peut être une classe mère. (Classe indépendante, comme classe fille). Une définie, il faut que l'on initialise les fonctions de la classe mère au niveau du constructeur de la classe fille en faisant appel au constructeur de la classe mère. Soit le code <code>ClasseMère.__init__(self,paramètres)</code>. Il est a noté que, les arguments de la classe fille doit en premier reprendre tout les paramètres de la classe mère et ensuite ses propres paramètres au niveau de sont constructeur.<br> <b>Exemple:</b> on a: <br><code>ClasseMère:<br><b>def __init__</b>(self,p1m,pm2)</code>. La définition de la classe fille serait:<br><code>ClasseFille(ClasseMère):<br><b>def __init__</b>(self, pm1,pm2,pf1,pf2)</code>. Aussi, a l'utilisation, si l'on veut accéder à une méthode ou attribut, python cherche d'abord si nous avons une tel méthode définie au niveau de la classe fille. Si c'est trouver, alors c'est elle qui est exécuté. Même si une tel méthode exixte au niveau de la classe mère, elle est ignoré. Elle sera pris en compte que lorsque la méthode n'existe pas dans notre classe fille. C'est même ce qui permet la redéfinition des <a href="methode.html">Méthodes Spéciales</a> au niveau de nos classe, sachant que toute nos classes sont issus de la grande classe <code>Object</code> et que ces méthodes sont des méthodes propre à elle. Il est possible de faire une classe qui hérite de plusieurs types de classes. Il suffit juste de spécifier toutes les classes mères en parémètre de la classe séparé par des virgules. La recherche de méthodes ou d'attribut non définie dans la classe fille se fait suivant l'ordre à laquelle les classes mères sont posté. Cependant, on peut définire la méthode à utiliser en faisant: <code>ClasseMère.methode(self)</code>. Si la méthode prend des paramètres particulier, on les précise.
+	</p>
+</body>
+</html>
