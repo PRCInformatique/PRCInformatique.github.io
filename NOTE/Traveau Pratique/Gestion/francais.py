@@ -15,9 +15,7 @@ def lir_fichier_b(nom,extension = "data"):#lir un fichier binaire
 	with open (f"{nom}.{extension}","rb") as fic:
 		rec = pickle.Unpickler(fic)
 		return rec.load() 
-def operateur():
-	return "+ - * / % ".split(" ")
-
+operateur = lambda:"+ - * / % ".split(" ")
 def r_operateur(valeur1,signe,valeur2):#Fonction de calcule simple
 	if signe == "+":
 		return int(valeur1) + int(valeur2)
@@ -32,8 +30,6 @@ def r_operateur(valeur1,signe,valeur2):#Fonction de calcule simple
 
 def ponctuation():
 	return ". , ; : ! ?".split(" ")
-
-
 def calcule (*args):
 	if len(args) == 1:
 		args = args[0].split(" ")
@@ -49,10 +45,9 @@ def calcule (*args):
 			a+=1
 	return resultat
 
+def conver_M(fonction,dic):
+	a = 0
+	for k in dic.keys():
+		a += fonction(dic[k],k)
+	return a
 
-
-print(calcule("25 + 52 - 789 * 2 + 10 - 56"))
-
-
-def analyse_de_texte(texte):
-	liste = texte.split(" ")
